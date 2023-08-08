@@ -53,7 +53,7 @@ public class Kotik {
     }
 
     private void eat() {
-        this.eat(3, "курица");
+        this.eat(4, "курица");
     }
 
     synchronized private boolean actionProcessed(String action) {
