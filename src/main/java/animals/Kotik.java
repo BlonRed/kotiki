@@ -8,7 +8,7 @@ public class Kotik {
     private int satiety;
     private int weight;
     static int count = 0;
-    final int METHOD = 5;
+    final int METHODS = 5;
 
     public Kotik() {
         count++;
@@ -20,33 +20,6 @@ public class Kotik {
         this.satiety = satiety;
         this.weight = weight;
         count++;
-    }
-
-    public String[] liveAnotherDay() {
-        String[] arrayActions = new String[24];
-        for (int hours = 0; hours < 24; hours++) {
-            int numberOfMethod = new Random().nextInt(METHOD) + 1;
-            String action = "";
-            switch (numberOfMethod) {
-                case 1:
-                    action = this.play() ? "играл" : "ел";
-                    break;
-                case 2:
-                    action = this.sleep() ? "спал" : "ел";
-                    break;
-                case 3:
-                    action = this.wash() ? "умывался" : "ел";
-                    break;
-                case 4:
-                    action = this.walk() ? "гулял" : "ел";
-                    break;
-                case 5:
-                    action = this.hunt() ? "охотился" : "ел";
-                    break;
-            }
-            arrayActions[hours] = String.format("%d - %s", hours, action);
-        }
-        return arrayActions;
     }
 
     private boolean play() {
@@ -92,6 +65,33 @@ public class Kotik {
             this.eat();
         }
         return false;
+    }
+
+    public String[] liveAnotherDay() {
+        String[] arrayActions = new String[24];
+        for (int hours = 0; hours < 24; hours++) {
+            int numberOfMethod = new Random().nextInt(METHODS) + 1;
+            String action = "";
+            switch (numberOfMethod) {
+                case 1:
+                    action = this.play() ? "играл" : "ел";
+                    break;
+                case 2:
+                    action = this.sleep() ? "спал" : "ел";
+                    break;
+                case 3:
+                    action = this.wash() ? "умывался" : "ел";
+                    break;
+                case 4:
+                    action = this.walk() ? "гулял" : "ел";
+                    break;
+                case 5:
+                    action = this.hunt() ? "охотился" : "ел";
+                    break;
+            }
+            arrayActions[hours] = String.format("%d - %s", hours, action);
+        }
+        return arrayActions;
     }
 
     public String getName() {
