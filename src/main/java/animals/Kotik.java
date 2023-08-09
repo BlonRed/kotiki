@@ -7,8 +7,8 @@ public class Kotik {
     private String voice;
     private int satiety;
     private int weight;
-    static int count = 0;
-    final int METHODS = 5;
+    private static int count = 0;
+    private final int METHODS = 5;
 
     public Kotik() {
         count++;
@@ -61,8 +61,6 @@ public class Kotik {
             System.out.printf("%s %s\n", this.name, action);
             satiety--;
             return true;
-        } else if (satiety == 0) {
-            this.eat();
         }
         return false;
     }
@@ -74,19 +72,44 @@ public class Kotik {
             String action = "";
             switch (numberOfMethod) {
                 case 1:
-                    action = this.play() ? "играл" : "ел";
+                    if (this.play()){
+                        action = "играл";
+                    } else {
+                        this.eat();
+                        action = "ел";
+                    }
                     break;
                 case 2:
-                    action = this.sleep() ? "спал" : "ел";
+                    if (this.play()){
+                        action = "спал";
+                    } else {
+                        this.eat();
+                        action = "ел";
+                    }
                     break;
                 case 3:
-                    action = this.wash() ? "умывался" : "ел";
+                    if (this.play()){
+                        action = "умывался";
+                    } else {
+                        this.eat();
+                        action = "ел";
+                    }
                     break;
                 case 4:
-                    action = this.walk() ? "гулял" : "ел";
+                    if (this.play()){
+                        action = "гулял";
+                    } else {
+                        this.eat();
+                        action = "ел";
+                    }
                     break;
                 case 5:
-                    action = this.hunt() ? "охотился" : "ел";
+                    if (this.play()){
+                        action = "охотился";
+                    } else {
+                        this.eat();
+                        action = "ел";
+                    }
                     break;
             }
             arrayActions[hours] = String.format("%d - %s", hours, action);
