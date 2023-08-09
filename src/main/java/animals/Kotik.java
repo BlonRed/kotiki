@@ -8,7 +8,7 @@ public class Kotik {
     private int satiety;
     private int weight;
     private static int count = 0;
-    private final int METHODS = 5;
+    private static final int METHODS = 5;
 
     public Kotik() {
         count++;
